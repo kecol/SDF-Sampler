@@ -35,7 +35,7 @@ points = (np.random.rand(n_points, 2)-.5)*2
 sdf_values = sample().f(points)
 ```
 
-(SDF 2D Sampler notebook)[SDF_Sampler_2D.ipynb]
+[SDF 2D Sampler notebook](SDF_Sampler_2D.ipynb)
 
 
 ### 3D Sampler
@@ -62,7 +62,7 @@ points = (np.random.rand(n_points, 3)-.5)*2
 sdf_values = sample().f(points)
 ```
 
-(SDF 3D Sampler notebook)[SDF_Sampler_3D.ipynb]
+[SDF 3D Sampler notebook](SDF_Sampler_3D.ipynb)
 
 
 ## TODOs
@@ -73,3 +73,6 @@ sdf_values = sample().f(points)
 - ~~Add alternative 3D plots (utils)~~
 - Add more primitives (primitives.primitives_3D)
 - Add more operations (operations.operations_3D)
+- Simplify video generation for 3D
+- Add animated/video 3D slice exploration
+- Add STL plotting
