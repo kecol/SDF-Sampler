@@ -1,3 +1,4 @@
+# %load ../../SDF-Sampler/sdf_sampler/primitives.py
 import sdf
 import numpy as np
 
@@ -43,35 +44,81 @@ primitives_2d = {
 # 3D
 
 def sphere_parameters():
-    radius = max(.1, np.random.rand())
+    radius = max(.1, np.random.rand()*.75)
     center = np.random.rand(3) - .5
     return {'radius': radius, 'center': center}
 
 def box_parameters():
     # size=1, center=ORIGIN, a=None, b=None    
-    size = np.maximum(np.ones(3)*.1, np.random.rand(3))
+    size = np.maximum(np.ones(3)*.1, np.random.rand(3)*.75)
     center = np.random.rand(3) - .5
     return {'size': size, 'center': center, 'a': None, 'b': None}
 
 def wireframe_box_parameters():
-    size = np.maximum(np.ones(3)*.1, np.random.rand(3))
-    thickness = 0.01 + np.random.rand()*0.05
+    size = np.maximum(np.ones(3)*.1, np.random.rand(3)*.8)
+    thickness = 0.0001 + np.random.rand()*0.05
     return {'size': size, 'thickness': thickness}
 
 def cylinder_parameters():
-    radius = max(.1, np.random.rand())
+    radius = 0.01 + np.random.rand()*.2
     return {'radius': radius}
-    
+   
+def torus_parameters_0():
+    # fat torus
+    r1 = max(.1, np.random.rand()*.5)
+    r2 = r1 + 0.02 + np.random.rand()*.2
+    return {'r1': r1, 'r2': r2}
+
 def torus_parameters():
     r1 = 0.1 + np.random.rand()*.8
     r2 = np.random.rand()*.5
     return {'r1': r1, 'r2': r2}
 
+def capped_cylinder_parameters():
+    a = (np.random.rand(3)-.5)*1.5
+    b = (np.random.rand(3)-.5)*1.5
+    radius = 0.01 + np.random.rand()*.2
+    return {'a': a, 'b': b, 'radius': radius}
+
+def capped_cone_parameters():
+    a = (np.random.rand(3)-.5)
+    b = (np.random.rand(3)-.5)
+    ra = np.random.rand()*.02
+    rb = 0.02 + np.random.rand()*.5
+    return {'a': a, 'b': b, 'ra': ra, 'rb': rb}
+
+def ellipsoid_parameters():
+    size = np.maximum(np.ones(3)*.15, np.random.rand(3)*.75)
+    return {'size': size}
+
+def pyramid_parameters():
+    h = 0.2 + np.random.rand()*.8
+    return {'h': h}
+
+def r_parameters(): return {'r': 0.1 + np.random.rand()*.9}
+
+def rounded_cylinder_parameters():
+    ra = np.random.rand()*.25
+    rb = np.random.rand()*.25
+    h = 0.4 + np.random.rand()*.6
+    return {'ra': ra, 'rb': rb, 'h': h}
+
 primitives_3d = {
-    'p':  {'name': 'plane', 'creator': sdf.plane, 'parameters': none_parameters},
-    's':  {'name': 'sphere', 'creator': sdf.sphere, 'parameters': sphere_parameters},
-    'b':  {'name': 'box', 'creator': sdf.box, 'parameters': box_parameters},
-    'wb': {'name': 'wireframe box', 'creator': sdf.wireframe_box, 'parameters': wireframe_box_parameters},
-    'c':  {'name': 'cylinder', 'creator': sdf.cylinder, 'parameters': cylinder_parameters},
-    't':  {'name': 'torus', 'creator': sdf.torus, 'parameters': torus_parameters}
+    'pl':  {'name': 'plane', 'creator': sdf.plane, 'parameters': none_parameters},
+    'sp':  {'name': 'sphere', 'creator': sdf.sphere, 'parameters': sphere_parameters},
+    'el':  {'name': 'ellipsoid', 'creator': sdf.ellipsoid, 'parameters': ellipsoid_parameters},
+    'bo':  {'name': 'box', 'creator': sdf.box, 'parameters': box_parameters},
+    'wbo': {'name': 'wireframe box', 'creator': sdf.wireframe_box, 'parameters': wireframe_box_parameters},
+    'cy':  {'name': 'cylinder', 'creator': sdf.cylinder, 'parameters': cylinder_parameters},
+    'ccy': {'name': 'capped cylinder', 'creator': sdf.capped_cylinder, 'parameters': capped_cylinder_parameters},
+    'rcy': {'name': 'rounded cylinder', 'creator': sdf.rounded_cylinder, 'parameters': rounded_cylinder_parameters},
+    'cco': {'name': 'capped cone', 'creator': sdf.capped_cone, 'parameters': capped_cone_parameters},
+    'ca':  {'name': 'capsule', 'creator': sdf.capsule, 'parameters': capped_cylinder_parameters},    
+    'to':  {'name': 'torus', 'creator': sdf.torus, 'parameters': torus_parameters},
+    'py':  {'name': 'pyramid', 'creator': sdf.pyramid, 'parameters': pyramid_parameters},
+    'te':  {'name': 'tetrahedron', 'creator': sdf.tetrahedron, 'parameters': r_parameters},
+    'oc':  {'name': 'octahedron', 'creator': sdf.octahedron, 'parameters': r_parameters},
+    'do':  {'name': 'dodecahedron', 'creator': sdf.dodecahedron, 'parameters': r_parameters},
+    'ic':  {'name': 'icosahedron', 'creator': sdf.icosahedron, 'parameters': r_parameters},
+    
 }
