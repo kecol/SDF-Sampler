@@ -63,8 +63,8 @@ def cylinder_parameters():
     return {'radius': radius}
     
 def torus_parameters():
-    r1 = max(.1, np.random.rand()*.5)
-    r2 = r1 + 0.02 + np.random.rand()*.2
+    r1 = 0.1 + np.random.rand()*.8
+    r2 = np.random.rand()*.5
     return {'r1': r1, 'r2': r2}
 
 primitives_3d = {
