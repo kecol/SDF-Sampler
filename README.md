@@ -71,7 +71,7 @@ sdf_values = sample().f(points)
 - Add more operations (operations.operations_2D)
 - ~~Replicate the whole sampling idea for 3D~~
 - ~~Add alternative 3D plots (utils)~~
-- Add more primitives (primitives.primitives_3D)
+- ~~Add more primitives (primitives.primitives_3D)~~
 - Add more operations (operations.operations_3D)
 - Simplify video generation for 3D
 - Add animated/video 3D slice exploration

@@ -84,10 +84,10 @@ def transfer_function(x, rgb_gaussians_loc = (0.1, 0.0, -0.1)):
 
     return r,g,b,a
 
-def volume_rendering(sdf3, N=128, theta=0.0, transfer_function=transfer_function):
+def volume_rendering(sdf3, N=128, theta=0.0, bound=1.0, transfer_function=transfer_function):
     
     # generate volume grid coordinates
-    c = np.linspace(-1, 1, N)
+    c = np.linspace(-bound, bound, N)
     qx, qy, qz = np.meshgrid(c,c,c)
     # rotate volume grid coordinates
     qxR = qx

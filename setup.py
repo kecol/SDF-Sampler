@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='SDF Sampler',
-    version='0.1',
+    version='0.2',
     description='Generates 2D/3D SDF samples based on the paper "Primitive3D: 3D Object Dataset Synthesis from Randomly Assembled Primitives"',
     author='Ezequiel Bidart',
     author_email='ezequiel.bidart@gmail.com',
