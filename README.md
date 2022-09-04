@@ -75,4 +75,4 @@ sdf_values = sample().f(points)
 - Add more operations (operations.operations_3D)
 - Simplify video generation for 3D
 - Add animated/video 3D slice exploration
-- Add STL plotting
+- ~~Add STL plotting~~: [simply install k3d for this task](https://k3d-jupyter.org/user/install.html)
