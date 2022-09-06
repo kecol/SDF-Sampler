@@ -8,7 +8,7 @@ setup(
     author_email='ezequiel.bidart@gmail.com',
     packages=['sdf_sampler'],
     install_requires=[
-        'sdf',
+        'sdf@git+https://github.com/fogleman/sdf.git',
         'binarytree',
         'numpy',
         'matplotlib',
